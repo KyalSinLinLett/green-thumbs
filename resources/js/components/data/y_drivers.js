@@ -1,0 +1,22 @@
+export var y_drivers = 
+{
+"2001":{"Forestry":37.64,"Shifting agriculture":27.18,"Commodity driven deforestation":34.0,"Unknown":1.07,"Urbanization":0.1},
+"2002":{"Forestry":35.6,"Shifting agriculture":27.38,"Commodity driven deforestation":36.1,"Unknown":0.8,"Urbanization":0.11},
+"2003":{"Forestry":33.84,"Shifting agriculture":28.03,"Commodity driven deforestation":37.01,"Unknown":0.87,"Urbanization":0.25},
+"2004":{"Forestry":35.83,"Shifting agriculture":28.16,"Commodity driven deforestation":34.97,"Unknown":0.89,"Urbanization":0.16},
+"2005":{"Forestry":32.98,"Shifting agriculture":24.22,"Commodity driven deforestation":41.8,"Unknown":0.82,"Urbanization":0.18},
+"2006":{"Forestry":30.72,"Shifting agriculture":29.93,"Commodity driven deforestation":38.5,"Unknown":0.66,"Urbanization":0.19},
+"2007":{"Forestry":31.49,"Shifting agriculture":25.55,"Commodity driven deforestation":42.28,"Unknown":0.57,"Urbanization":0.1},
+"2008":{"Forestry":32.01,"Shifting agriculture":27.24,"Commodity driven deforestation":39.76,"Unknown":0.8,"Urbanization":0.19},
+"2009":{"Forestry":30.89,"Shifting agriculture":27.09,"Commodity driven deforestation":41.3,"Unknown":0.58,"Urbanization":0.14},
+"2010":{"Forestry":30.5,"Shifting agriculture":24.33,"Commodity driven deforestation":44.33,"Unknown":0.62,"Urbanization":0.22},
+"2011":{"Forestry":29.39,"Shifting agriculture":25.63,"Commodity driven deforestation":43.96,"Unknown":0.81,"Urbanization":0.2},
+"2012":{"Forestry":29.58,"Shifting agriculture":28.18,"Commodity driven deforestation":41.11,"Unknown":0.94,"Urbanization":0.19},
+"2013":{"Forestry":33.33,"Shifting agriculture":26.06,"Commodity driven deforestation":39.86,"Unknown":0.62,"Urbanization":0.14},
+"2014":{"Forestry":32.39,"Shifting agriculture":26.63,"Commodity driven deforestation":40.42,"Unknown":0.38,"Urbanization":0.17},
+"2015":{"Forestry":35.17,"Shifting agriculture":24.66,"Commodity driven deforestation":39.72,"Unknown":0.27,"Urbanization":0.18},
+"2016":{"Forestry":36.34,"Shifting agriculture":25.43,"Commodity driven deforestation":37.72,"Unknown":0.27,"Urbanization":0.24},
+"2017":{"Forestry":36.05,"Shifting agriculture":26.45,"Commodity driven deforestation":36.96,"Unknown":0.27,"Urbanization":0.27},
+"2018":{"Forestry":34.31,"Shifting agriculture":25.0,"Commodity driven deforestation":40.24,"Unknown":0.19,"Urbanization":0.25},
+"2019":{"Forestry":33.87,"Shifting agriculture":26.06,"Commodity driven deforestation":39.66,"Unknown":0.26,"Urbanization":0.16},
+}
