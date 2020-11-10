@@ -20,6 +20,8 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('map-component', require('./components/map.vue').default);
+Vue.component('chart-component', require('./components/chart.vue').default);
+Vue.component('regional-component', require('./components/regional.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

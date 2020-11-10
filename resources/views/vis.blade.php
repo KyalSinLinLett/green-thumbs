@@ -5,7 +5,19 @@
 	<h1>See it for yourself</h1>
 	<hr>
 	
-	<map-component/>
+<!-- 	<div>
+		<chart-component/>
+	</div> -->
+
+<!-- 	<div>
+		<map-component/>
+	</div> -->
+
+	<div>
+		<regional-component/>
+	</div>
 	
+
+
 </div>
 @endsection

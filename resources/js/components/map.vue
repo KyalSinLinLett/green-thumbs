@@ -1,66 +1,71 @@
 <template>
-  <div id="map" class="card" style="border-radius: 2rem; box-shadow: 7px 7px 15px -10px rgba(0,0,0,0.48);">
+  <div id="map">
+    <!-- Start of map -->
+    <div class="card" style="border-radius: 2rem; box-shadow: 7px 7px 15px -10px rgba(0,0,0,0.48);">
 
-    <div class="card-header text-light" style="border-radius: 2rem; box-shadow: 7px 7px 15px -10px rgba(0,0,0,0.48); background-color: #436e44">
-      <h2 class="mt-2">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-tree-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M8 0a.5.5 0 0 1 .416.223l3 4.5A.5.5 0 0 1 11 5.5h-.098l2.022 3.235a.5.5 0 0 1-.424.765h-.191l1.638 3.276a.5.5 0 0 1-.447.724h-11a.5.5 0 0 1-.447-.724L3.69 9.5H3.5a.5.5 0 0 1-.424-.765L5.098 5.5H5a.5.5 0 0 1-.416-.777l3-4.5A.5.5 0 0 1 8 0z"/>
-          <path d="M7 13.5h2V16H7v-2.5z"/>
-        </svg>
-        Forest loss as of {{ curr_year }} 
-        <small v-if="curr_year > 2019">*Prediction</small>
-      </h2>
-    </div>
-
-    <div class="card-body">
-      <p id="information">
-        Myanmar lost a total of <strong>{{ areaLossByYear }} ha</strong> in year <strong>{{ curr_year }}</strong>.<br>
-      </p>
-
-
-      <h5 class="mb-3" style="font-style: italic;">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-return-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"/>
-        </svg>
-        <strong>Main</strong> drivers for <strong>forest loss</strong> in <strong>{{ curr_year }}</strong>
-      </h5>
-      <ul class="list-group list-group-horizontal-md mb-3">
-        <li class="list-group-item"><strong id="drvr">Forestry:</strong> {{ yearly_driver.Forestry }}<strong>%</strong></li>
-        <li class="list-group-item"><strong id="drvr">Agricultural:</strong> {{ yearly_driver['Shifting agriculture'] }}<strong>%</strong></li>
-        <li class="list-group-item"><strong id="drvr">Deforestation for commodity:</strong> {{ yearly_driver['Commodity driven deforestation'] }}<strong>%</strong></li>
-        <li class="list-group-item"><strong id="drvr">Urbanization:</strong> {{ yearly_driver.Urbanization }}<strong>%</strong></li>
-        <li class="list-group-item"><strong id="drvr">Unknown:</strong> {{ yearly_driver.Unknown }}<strong>%</strong></li>
-      </ul>
-
-      <div class="mb-3">
-        <l-map :center="[21.9162, 95.9560]" :zoom="7" style="height: 600px; border-radius: 1.5rem; padding: 20px;" :options="mapOptions">
-          <l-choropleth-layer :data="mmRegionData" titleKey="ST" idKey="region_id" :value="value" geojsonIdKey="OBJECTID" :geojson="mmGeoJson" :colorScale="colorScale">
-            <template slot-scope="props">
-              <l-info-control :item="props.currentItem" :unit="props.unit" title="Region (forest loss)" placeholder="Hover over a region"/>
-              <l-reference-chart title="Forest loss" :colorScale="colorScale" :min="props.min" :max="props.max" position="topright"/>
-            </template>
-          </l-choropleth-layer>
-        </l-map>
+      <div class="card-header text-light" style="border-radius: 2rem; box-shadow: 7px 7px 15px -10px rgba(0,0,0,0.48); background-color: #436e44">
+        <h2 class="mt-2">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-tree-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 0a.5.5 0 0 1 .416.223l3 4.5A.5.5 0 0 1 11 5.5h-.098l2.022 3.235a.5.5 0 0 1-.424.765h-.191l1.638 3.276a.5.5 0 0 1-.447.724h-11a.5.5 0 0 1-.447-.724L3.69 9.5H3.5a.5.5 0 0 1-.424-.765L5.098 5.5H5a.5.5 0 0 1-.416-.777l3-4.5A.5.5 0 0 1 8 0z"/>
+            <path d="M7 13.5h2V16H7v-2.5z"/>
+          </svg>
+          Forest loss as of {{ curr_year }} 
+          <small v-if="curr_year > 2019">*Prediction</small>
+        </h2>
       </div>
-      
 
-      <small class="mt-3">Scroll to see the annual changes throughout the years</small class="mt-3"><br>
-        <div class="slidecontainer">
-          <input v-model="curr_year" 
-          @change="changeYear" 
-          type="range" 
-          min="2010" max="2019" 
-          step="1" 
-          value="curr_year" 
-          class="slider" 
-          id="myRange" 
-          data-toggle="tooltip" 
-          :title="curr_year">
+      <div class="card-body">
+        <p id="information">
+          Myanmar lost a total of <strong>{{ areaLossByYear }} ha</strong> in year <strong>{{ curr_year }}</strong>.<br>
+        </p>
+
+
+        <h5 class="mb-3" style="font-style: italic;">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-return-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"/>
+          </svg>
+          <strong>Main</strong> drivers for <strong>forest loss</strong> in <strong>{{ curr_year }}</strong>
+        </h5>
+
+        <ul class="list-group list-group-horizontal-md mb-3">
+          <li class="list-group-item"><strong id="drvr">Forestry:</strong> {{ yearly_driver.Forestry }}<strong>%</strong></li>
+          <li class="list-group-item"><strong id="drvr">Agricultural:</strong> {{ yearly_driver['Shifting agriculture'] }}<strong>%</strong></li>
+          <li class="list-group-item"><strong id="drvr">Deforestation for commodity:</strong> {{ yearly_driver['Commodity driven deforestation'] }}<strong>%</strong></li>
+          <li class="list-group-item"><strong id="drvr">Urbanization:</strong> {{ yearly_driver.Urbanization }}<strong>%</strong></li>
+          <li class="list-group-item"><strong id="drvr">Unknown:</strong> {{ yearly_driver.Unknown }}<strong>%</strong></li>
+        </ul>
+
+        <div class="mb-3">
+          <l-map :center="[21.9162, 95.9560]" :zoom="7" style="height: 600px; border-radius: 1.5rem; padding: 20px;" :options="mapOptions">
+            <l-choropleth-layer :data="mmRegionData" titleKey="ST" idKey="region_id" :value="value" geojsonIdKey="OBJECTID" :geojson="mmGeoJson" :colorScale="colorScale">
+              <template slot-scope="props">
+                <l-info-control :item="props.currentItem" :unit="props.unit" title="Region (forest loss)" placeholder="Hover over a region"/>
+                <l-reference-chart title="Forest loss" :colorScale="colorScale" :min="props.min" :max="props.max" position="topright"/>
+              </template>
+            </l-choropleth-layer>
+          </l-map>
+        </div>
+        
+
+          <small class="mt-3">Scroll to see the annual changes throughout the years</small class="mt-3"><br>
+          <div class="slidecontainer">
+            <input v-model="curr_year" 
+            @change="changeYear" 
+            type="range" 
+            min="2010" max="2019" 
+            step="1" 
+            value="curr_year" 
+            class="slider" 
+            id="myRange" 
+            data-toggle="tooltip" 
+            :title="curr_year">
+          </div>
 
         </div>
-
       </div>
-    </div>
+      <!-- End of map -->
+  </div>
+
   </template>
 
   <script>
