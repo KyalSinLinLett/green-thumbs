@@ -9,9 +9,9 @@
 		<chart-component/>
 	</div> -->
 
-<!-- 	<div>
+	<div>
 		<map-component/>
-	</div> -->
+	</div>
 
 	<div>
 		<regional-component/>

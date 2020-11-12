@@ -32,11 +32,10 @@
           <li class="list-group-item"><strong id="drvr">Agricultural:</strong> {{ yearly_driver['Shifting agriculture'] }}<strong>%</strong></li>
           <li class="list-group-item"><strong id="drvr">Deforestation for commodity:</strong> {{ yearly_driver['Commodity driven deforestation'] }}<strong>%</strong></li>
           <li class="list-group-item"><strong id="drvr">Urbanization:</strong> {{ yearly_driver.Urbanization }}<strong>%</strong></li>
-          <li class="list-group-item"><strong id="drvr">Unknown:</strong> {{ yearly_driver.Unknown }}<strong>%</strong></li>
         </ul>
 
         <div class="mb-3">
-          <l-map :center="[21.9162, 95.9560]" :zoom="7" style="height: 600px; border-radius: 1.5rem; padding: 20px;" :options="mapOptions">
+          <l-map :center="[21.9162, 95.9560]" :zoom="7" style="height: 500px; border-radius: 1.5rem; padding: 20px;" :options="mapOptions">
             <l-choropleth-layer :data="mmRegionData" titleKey="ST" idKey="region_id" :value="value" geojsonIdKey="OBJECTID" :geojson="mmGeoJson" :colorScale="colorScale">
               <template slot-scope="props">
                 <l-info-control :item="props.currentItem" :unit="props.unit" title="Region (forest loss)" placeholder="Hover over a region"/>
@@ -46,8 +45,8 @@
           </l-map>
         </div>
         
-
-          <small class="mt-3">Scroll to see the annual changes throughout the years</small class="mt-3"><br>
+        <h4>Current year: <strong>{{ curr_year }}</strong></h4>
+        <small class="mt-3">Scroll to see the annual changes throughout the years</small class="mt-3"><br>
           <div class="slidecontainer">
             <input v-model="curr_year" 
             @change="changeYear" 
@@ -64,18 +63,18 @@
         </div>
       </div>
       <!-- End of map -->
-  </div>
+    </div>
 
   </template>
 
-  <script>
-    import { InfoControl, ReferenceChart, ChoroplethLayer } from 'vue-choropleth'
-    import { geojson } from './data/mm-region-geojson'
-    import mmGeoJson from './data/myanmar.json'
-    import {yearly_loss} from './data/yearly-loss.js'
-    import {LMap} from 'vue2-leaflet'
+<script>
+  import { InfoControl, ReferenceChart, ChoroplethLayer } from 'vue-choropleth'
+  import { geojson } from './data/mm-region-geojson'
+  import mmGeoJson from './data/myanmar.json'
+  import {yearly_loss} from './data/yearly-loss.js'
+  import {LMap} from 'vue2-leaflet'
 
-    import {y_drivers} from './data/y_drivers.js'
+  import {y_drivers} from './data/y_drivers.js'
 
 
 

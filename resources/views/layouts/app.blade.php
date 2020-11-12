@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Green Thumb') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -44,7 +44,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">Community</a>
+                            <a class="nav-link" href="{{ route('community') }}">Community</a>
                         </li>
 
                     </ul>
@@ -68,6 +68,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    <!-- Profile link -->
+                                    <a class="dropdown-item" href="{{ route('profile-show', Auth::id()) }}">My Profile</a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
