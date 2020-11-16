@@ -39,3 +39,18 @@ Route::get('/post/edit/{post}', 'PostsController@edit')->name('post-edit');
 Route::post('/post/update/{post}', 'PostsController@update')->name('post-update');
 Route::get('/post/delete/{post}', 'PostsController@delete')->name('post-delete');
 Route::get('/post/rmvimg/{post}', 'PostsController@remove_image')->name('post-rmvimg');
+
+// like
+Route::post('/post/like/{post}', 'LikeController@store')->name('post-react');
+Route::get('/post/getlike/{post}', 'LikeController@get_like')->name('post-getlike');
+
+// comment
+Route::post('/comment/store/{post}', 'CommentsController@store')->name('post-storecomment');
+Route::get('/comment/edit/{cmt}', 'CommentsController@edit')->name('comment-edit');
+Route::post('/comment/update/{cmt}', 'CommentsController@update')->name('comment-update');
+Route::get('/comment/delete/{cmt}', 'CommentsController@delete')->name('comment-delete');
+
+// follow
+Route::post('/profile/follow/{following}', 'FollowsController@store');
+Route::get('/profile/getFollowers/{user}', 'FollowsController@getFollowers');
+Route::get('/profile/getFollowing/{user}', 'FollowsController@getFollowing');

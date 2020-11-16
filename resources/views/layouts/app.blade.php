@@ -40,7 +40,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">Green Habits</a>
+                            <a class="nav-link" href="">Daily Green Habits</a>
                         </li>
 
                         <li class="nav-item">

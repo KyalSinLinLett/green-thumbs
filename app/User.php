@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 use App\Posts;
+use App\Profile;
 
 class User extends Authenticatable
 {
@@ -62,5 +63,15 @@ class User extends Authenticatable
     public function posts() 
     {
         return $this->hasMany(Posts::class)->orderBy('created_at', 'DESC');
+    }
+
+    public function liked_posts()
+    {
+        return $this->belongsToMany(Posts::class)->orderBy('created_at', 'DESC');
+    }
+
+    public function following()
+    {
+        return $this->belongsToMany(Profile::class);
     }
 }

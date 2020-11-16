@@ -7,6 +7,7 @@
 
 		<div class="form-group">
 			<div>
+				<label for="bio" style="font-style: italic;">Biography</label>
 				<input id="bio" type="text" class="form-control" name="bio" value="{{ $user->profile->bio }}" placeholder="Biography" required>
 			</div>
 			<br>

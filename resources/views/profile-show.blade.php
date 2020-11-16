@@ -17,7 +17,7 @@
                 <div class="col-lg-2">
                     <img src="{{ $user->profile->profileImage() }}" width="100%" style="border-radius: 50%">
                 </div>
-                <div class="col-10">
+                <div class="col-4">
                     <ul>
                         <li>
                             {{ $user->name }}
@@ -33,6 +33,34 @@
                         @endcan
                     </ul>
                 </div>
+                <div class="col-6">
+                    @if(Auth::id() != $user->id)
+                        <div class="row">
+                            <div class="col-4">
+                                <follow-component uid="{{ $user->id }}" follows="{{ auth()->user()->following->contains($user->profile) }}"/>  
+                            </div>
+                        </div>
+                    @else
+                        <div style="text-align: center;">
+                            <table class="table">
+                              <thead class="thead">
+                                <tr>
+                                  <th scope="col">Followers</th>
+                                  <th scope="col">Following</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>{{auth()->user()->profile->followers->count()}}</td>
+                                  <td>{{auth()->user()->following->count()}}</td>
+                                </tr>
+                              </tbody>
+                            </table>            
+                        </div>  
+                    @endif
+                </div>
+
+
             </div>
         </div>
     </div>

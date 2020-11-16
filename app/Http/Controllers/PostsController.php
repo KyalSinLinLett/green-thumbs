@@ -88,4 +88,6 @@ class PostsController extends Controller
     	Posts::find($post->id)->update(['postimage' => '']);
     	return redirect()->back();
     }
+
+    
 }
