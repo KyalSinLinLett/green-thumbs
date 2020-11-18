@@ -18,6 +18,9 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->text('content');
             $table->string('postimage')->nullable();
+            $table->boolean('type')->default(0); // if green post -> 1, normal post -> 0
+            $table->string('region')->nullable();
+            $table->string('challenge')->nullable();
             $table->timestamps();
 
             $table->index('user_id');

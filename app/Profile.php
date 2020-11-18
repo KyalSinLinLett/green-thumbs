@@ -9,7 +9,7 @@ use App\User;
 class Profile extends Model
 {
 
-	protected $fillable = ['bio', 'image'];
+	protected $guarded = [];
 
     public function profileImage(){
         $imagePath = ($this->image) ? ($this->image) : 'profile/default-profile-picture.jpg';

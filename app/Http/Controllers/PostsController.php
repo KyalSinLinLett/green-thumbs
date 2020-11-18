@@ -7,6 +7,7 @@ use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 
 use App\Posts;
+use App\User;
 
 class PostsController extends Controller
 {
@@ -87,6 +88,29 @@ class PostsController extends Controller
     	Storage::delete($post->postimage);
     	Posts::find($post->id)->update(['postimage' => '']);
     	return redirect()->back();
+    }
+
+    public function search(Request $request)
+    {
+
+        if($request->search != '')
+        {
+            $users = User::where('name', 'like', '%' . $request->search . '%')->skip(0)->take(8)->get();
+
+            $users = $users->map(function($user) {
+
+                $user->image = $user->profile->profileImage();
+
+                $user->bio = $user->profile->bio;
+
+                return $user;
+
+            });
+
+            $posts = Posts::where('content', 'like', '%' . $request->search . '%')->skip(0)->take(8)->get();
+
+            return view('search-results', compact('posts', 'users'));
+        }
     }
 
     

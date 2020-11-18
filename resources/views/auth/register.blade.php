@@ -4,8 +4,19 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+
+            <div>
+                <h3>
+                    Hey there! Thank you for joining our community.
+                </h3>
+                <h5>
+                    Few simple steps and you are ready to make change!
+                </h5>
+                <hr>
+            </div>
+
+            <div class="card" style="border-radius: 2rem; box-shadow: 7px 7px 15px -10px rgba(0,0,0,0.48);">
+                <div class="card-header text-light" style="border-radius: 2rem; box-shadow: 7px 7px 15px -10px rgba(0,0,0,0.48); background-color: #436e44">{{ __('Register') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">

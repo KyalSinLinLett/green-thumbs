@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 	<div class="row">
-		<div class="offset-2 col-8">
+		<div class="offset-1 col-10">
 			<h3>View Post</h3>
 			<hr>
 			<div class="card" style="border-radius: 2rem; box-shadow: 7px 7px 15px -10px rgba(0,0,0,0.48);">
@@ -41,8 +41,12 @@
 					@endif
 
 					<hr>
+				
+					<div>
+						<like-component num_likes="{{ $post->liked_by->count() }}" pid="{{ $post->id }}" likes="{{ auth()->user()->liked_posts->contains($post->id) }}"></like-component>
+					</div>
 
-					<div class="px-2">
+					<div class="mt-3 px-3">
 						<form action="{{ route('post-storecomment', $post->id) }}" method="POST">
 							@csrf
 							<div class="form-group row">
@@ -50,10 +54,6 @@
 								<button class="btn btn-primary col-3" type="submit">Comment</button>
 							</div>
 						</form>
-					</div>
-				
-					<div class="col-3">
-						<like-component num_likes="{{ $post->liked_by->count() }}" pid="{{ $post->id }}" likes="{{ auth()->user()->liked_posts->contains($post->id) }}"></like-component>
 					</div>
 
 				</div>
@@ -66,11 +66,15 @@
 			@forelse($post->comments as $comment)
 			<div class="card mb-2" style="border-radius: 1.6rem; box-shadow: 7px 7px 15px -10px rgba(0,0,0,0.48);">
 				<div class="card-body d-flex justify-content-between">
-					<div>
-						<img src="{{ App\User::find($comment->user_id)->profile->profileimage() }}" width="35" style="border-radius: 50%">
-						<i><a href="{{ route('profile-show', $comment->user_id) }}">{{ App\User::find($comment->user_id)->name }}</a> said</i>
-							
-						<b class="ml-1">{{ $comment->comment }}</b>			
+					<div class="d-flex align-items-center mt-1">
+						<div>
+							<img src="{{ App\User::find($comment->user_id)->profile->profileimage() }}" width="35" style="border-radius: 50%">
+							<i><a href="{{ route('profile-show', $comment->user_id) }}">{{ App\User::find($comment->user_id)->name }}</a> said</i>	
+						</div>
+					
+						<div>
+							<b class="ml-2">{{ $comment->comment }}</b>			
+						</div>
 					</div>
 
 					<div>

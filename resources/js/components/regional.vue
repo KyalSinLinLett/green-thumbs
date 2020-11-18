@@ -2,13 +2,13 @@
 	<!-- Regional information -->
 	<div id='regional' class="card mt-3" style="border-radius: 2rem; box-shadow: 7px 7px 15px -10px rgba(0,0,0,0.48);">
 		<div class="card-header text-light" style="border-radius: 2rem; box-shadow: 7px 7px 15px -10px rgba(0,0,0,0.48); background-color: #436e44">
-			<h3 class="mt-2">
+			<strong class="mt-2">
 				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 					<path fill-rule="evenodd" d="M12.166 8.94C12.696 7.867 13 6.862 13 6A5 5 0 0 0 3 6c0 .862.305 1.867.834 2.94.524 1.062 1.234 2.12 1.96 3.07A31.481 31.481 0 0 0 8 14.58l.208-.22a31.493 31.493 0 0 0 1.998-2.35c.726-.95 1.436-2.008 1.96-3.07zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
 					<path fill-rule="evenodd" d="M8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
 				</svg>
 				Regional Information
-			</h3>
+			</strong>
 		</div>
 		<div class="card-body">
 			<input type="text" 
@@ -46,13 +46,13 @@
 								</div>
 								<div class="card-body">
 									<p>
-										Total area of <strong>{{ region.toUpperCase() }}:</strong> <i>{{ chosen_region_info.total }}</i><strong> ha</strong>
+										Total area of <strong>{{ region.toUpperCase() }}:</strong> <i>{{ chosen_region_info.total }}</i><strong> hectares</strong>
 									</p>
 									<p>
-										<strong>Forest cover loss</strong> from <strong>2001-2012:</strong> <i>{{ chosen_region_info.loss01_12 }}</i><strong> ha</strong>
+										<strong>Forest cover loss</strong> from <strong>2001-2012:</strong> <i>{{ chosen_region_info.loss01_12 }}</i><strong> hectares</strong>
 									</p>
 									<p>
-										<strong>Forest gain</strong> from <strong>2000-2012:</strong> <i>{{ chosen_region_info.gain_00_12 }}</i><strong> ha</strong>
+										<strong>Forest gain</strong> from <strong>2000-2012:</strong> <i>{{ chosen_region_info.gain_00_12 }}</i><strong> hectares</strong>
 									</p>
 								</div>
 							</div>
@@ -61,13 +61,13 @@
 					<div class="row mt-3">
 						<div class="col-lg">
 							<div class="card" style="border-radius: 2rem; box-shadow: 7px 7px 15px -10px rgba(0,0,0,0.48);">
-								<div class="card-header text-light" style="border-radius: 2rem; box-shadow: 7px 7px 15px -10px rgba(0,0,0,0.48);background-color: #436e44">
-									<h5 style="text-align: center" class="mt-2">
+								<div class="card-header text-light" style="text-align:center; border-radius: 2rem; box-shadow: 7px 7px 15px -10px rgba(0,0,0,0.48);background-color: #436e44">
+									<strong style="text-align: center" class="mt-2">
 										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-graph-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 										  <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5z"/>
 										</svg>
 										{{ region.toUpperCase() }} regional loss throughout the years
-									</h5>
+									</strong>
 								</div>
 
 								<div class="card-body">

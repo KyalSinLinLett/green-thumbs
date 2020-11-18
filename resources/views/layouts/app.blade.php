@@ -10,18 +10,18 @@
     <title>{{ config('app.name', 'Green Thumb') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ secure_asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -36,11 +36,11 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">Awareness</a>
+                            <a class="nav-link" href="{{ route('awareness') }}">Awareness</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">Daily Green Habits</a>
+                            <a class="nav-link" href="{{ route('green-habit-show') }}">Daily Green Habits</a>
                         </li>
 
                         <li class="nav-item">
@@ -71,6 +71,8 @@
 
                                     <!-- Profile link -->
                                     <a class="dropdown-item" href="{{ route('profile-show', Auth::id()) }}">My Profile</a>
+
+                                    <a class="dropdown-item" href="{{ route('about') }}">About</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

@@ -28,4 +28,18 @@ class FollowsController extends Controller
 	{
 		return json_encode(['following_count' => $user->following->count()]);
 	}
+
+	public function showFollowers(User $user)
+	{
+		$followers = $user->profile->followers;
+
+		return view('show-followers', compact('followers'));
+	}
+
+	public function showFollowing(User $user)
+	{
+		$following = $user->following;
+
+		return view('show-following', compact('following'));
+	}
 }

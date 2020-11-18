@@ -1,7 +1,7 @@
 <template>
 	<div class="d-flex justify-content-between">
 		<i><strong>Green thumbs:</strong> {{ reac_num_likes }}</i>
-		<button class="btn btn-warning" @click="likePost" v-text="buttonText"></button>
+		<button class="btn btn-success px-5" @click="likePost" v-text="buttonText"></button>							
 	</div>
 </template>
 
