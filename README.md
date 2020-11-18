@@ -55,7 +55,7 @@ php artisan migrate
 The project is ready to be served on your local machine.
 ```bash
 php artisan serve
+npm run watch
 ```
-
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
