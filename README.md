@@ -6,7 +6,7 @@ Green Thumbs is a Laravel+Vue.js based web application that aims to raise awaren
 
 Firstly, you need to have [composer](https://getcomposer.org/download/), [PHP](https://www.apachefriends.org/download.html) and [npm](https://nodejs.org/en/download/) to work with this project.
 
-Now, follow these 10 easy steps to have the project running on your local machine.
+Now, follow these 11 easy steps to have the project running on your local machine.
 
 ### Step 1:
 Clone this repository onto your local machine.
@@ -52,6 +52,11 @@ Now you can run migrations and the tables will be generated for you.
 php artisan migrate
 ```
 ### Step 10:
+Create a symlink to link the files under storage with public.
+```bash
+php artisan storage:link
+```
+### Step 11:
 The project is ready to be served on your local machine.
 ```bash
 php artisan serve
